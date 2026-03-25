@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>儿童识字小报生成器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 标题区域 -->
+    <div class="header">
+      <h1>🎨 儿童识字小报生成器</h1>
+      <p>选择场景，输入标题，自动生成专属识字小报</p>
+    </div>
+
+    <!-- 主输入卡片 -->
+    <div class="main-card">
+      <!-- 场景选择 -->
+      <div class="input-group">
+        <label>
+          <span class="icon">🏪</span>请选择场景
+        </label>
+        <select id="scene">
+          <option value="">-- 请选择场景 --</option>
+          <option value="custom">➕ 自定义场景</option>
+        </select>
+      </div>
+
+      <!-- 自定义场景输入 -->
+      <div class="input-group" id="customSceneGroup" style="display: none;">
+        <label>
+          <span class="icon">✏️</span>自定义场景名称
+        </label>
+        <input type="text" id="customScene" placeholder="请输入场景名称，如：厨房、书房">
+      </div>
+
+      <!-- 标题输入 -->
+      <div class="input-group">
+        <label>
+          <span class="icon">📝</span>请输入小报标题
+        </label>
+        <input type="text" id="title" placeholder="例如：《走进超市》《快乐医院》">
+      </div>
+
+      <!-- API Key 输入 -->
+      <div class="input-group">
+        <label>
+          <span class="icon">🔑</span>API Key
+        </label>
+        <input type="password" id="apiKey" placeholder="请输入您的 Nano Banana Pro API Key">
+        <small style="color: #888; margin-top: 5px; display: block;">* API Key 将保存在本地浏览器中</small>
+      </div>
+
+      <!-- 生成按钮 -->
+      <button class="generate-btn" id="generateBtn">
+        🚀 开始生成识字小报
+      </button>
+
+      <!-- 错误提示 -->
+      <div class="error-message" id="errorMessage"></div>
+
+      <!-- 词汇预览 -->
+      <div class="vocab-preview" id="vocabPreview"></div>
+
+      <!-- 提示词预览 -->
+      <div class="prompt-preview" id="promptPreview">
+        <h4>📋 生成的提示词</h4>
+        <pre></pre>
+      </div>
+    </div>
+
+    <!-- 状态区域 -->
+    <div class="status-area" id="statusArea">
+      <div class="status-header">
+        <div class="status-icon"></div>
+        <div class="status-text"></div>
+        <div class="status-detail"></div>
+      </div>
+    </div>
+
+    <!-- 结果区域 -->
+    <div class="result-area" id="resultArea">
+      <h3>🎉 生成完成！</h3>
+      <img class="result-image" alt="生成的识字小报">
+      <br>
+      <a class="download-btn" href="#" download>💾 下载图片</a>
+    </div>
+  </div>
+
+  <!-- 引入脚本 -->
+  <script src="vocab.js"></script>
+  <script src="prompt-template.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

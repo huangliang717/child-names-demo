@@ -1,0 +1,345 @@
+/* 儿童识字小报生成器 - 样式文件 */
+
+/* 重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* 儿童友好配色 */
+  --primary-color: #FF6B6B;
+  --secondary-color: #4ECDC4;
+  --accent-yellow: #FFE66D;
+  --accent-purple: #A66CFF;
+  --accent-blue: #74B9FF;
+  --bg-light: #FFF9F0;
+  --text-dark: #2D3436;
+  --text-light: #636E72;
+  --white: #FFFFFF;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --radius: 16px;
+}
+
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: linear-gradient(135deg, #FFF9F0 0%, #FFE8E8 100%);
+  color: var(--text-dark);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 标题区域 */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 0 var(--accent-yellow);
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+/* 主卡片 */
+.main-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+/* 输入组 */
+.input-group {
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.input-group label .icon {
+  margin-right: 8px;
+}
+
+/* 下拉框和输入框 */
+.input-group select,
+.input-group input[type="text"],
+.input-group input[type="password"] {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #E0E0E0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--white);
+}
+
+.input-group select:focus,
+.input-group input[type="text"]:focus,
+.input-group input[type="password"]:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+}
+
+.input-group select {
+  cursor: pointer;
+}
+
+/* 生成按钮 */
+.generate-btn {
+  width: 100%;
+  padding: 18px 30px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #FF8E8E 100%);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.generate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
+}
+
+.generate-btn:active {
+  transform: translateY(0);
+}
+
+.generate-btn:disabled {
+  background: #CCC;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 词汇预览区 */
+.vocab-preview {
+  background: linear-gradient(135deg, #F8F9FA 0%, #E8F4F8 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  display: none;
+}
+
+.vocab-preview.show {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+.vocab-section {
+  margin-bottom: 15px;
+}
+
+.vocab-section h4 {
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.vocab-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vocab-tag {
+  background: var(--white);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  border: 1px solid #E0E0E0;
+}
+
+/* 提示词预览区 */
+.prompt-preview {
+  background: #F5F5F5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  display: none;
+}
+
+.prompt-preview.show {
+  display: block;
+}
+
+.prompt-preview h4 {
+  color: var(--accent-purple);
+  margin-bottom: 12px;
+}
+
+.prompt-preview pre {
+  background: var(--white);
+  padding: 15px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #E0E0E0;
+}
+
+/* 状态区域 */
+.status-area {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 30px;
+  display: none;
+}
+
+.status-area.show {
+  display: block;
+  animation: slideUp 0.5s ease;
+}
+
+.status-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.status-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.status-text {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.status-detail {
+  color: var(--text-light);
+  margin-top: 8px;
+}
+
+/* 加载动画 */
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #E0E0E0;
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+/* 结果区域 */
+.result-area {
+  text-align: center;
+  display: none;
+}
+
+.result-area.show {
+  display: block;
+  animation: slideUp 0.5s ease;
+}
+
+.result-image {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--secondary-color);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #3DBDB4;
+  transform: translateY(-2px);
+}
+
+/* 错误提示 */
+.error-message {
+  background: #FFF0F0;
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 15px;
+  color: var(--primary-color);
+  text-align: center;
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+  animation: shake 0.5s ease;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+/* 响应式 */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-card {
+    padding: 20px;
+  }
+
+  .generate-btn {
+    font-size: 1.1rem;
+    padding: 15px 20px;
+  }
+}
